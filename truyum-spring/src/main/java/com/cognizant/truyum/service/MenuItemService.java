@@ -57,4 +57,10 @@ public class MenuItemService implements MenuItemDao {
 		item.modifyMenuItem(menuItem);
 	}
 
+	@Override
+	public void modifyMenuItem(MenuItem menuItem) {
+		// TODO Auto-generated method stub
+
+	}
+
 }

@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.util.List;
 
 import com.cognizant.truyum.model.MenuItem;
-import com.cognizant.truyum.util.DateUtil;
 
 public class MenuItemDaoCollectionImplTest {
 
@@ -47,8 +46,7 @@ public class MenuItemDaoCollectionImplTest {
 
 	static void testModifyMenuItem() throws ParseException {
 
-		MenuItem menuItem = new MenuItem(1, "Sandwich", 109.00f, true, new DateUtil().convertToDate("02/07/2017"),
-				"MainCourse", true);
+		MenuItem menuItem = new MenuItem();
 		MenuItemDaoCollectionImpl menuItemDaoCollectionImpl = new MenuItemDaoCollectionImpl();
 		MenuItemDao menuItemDao = menuItemDaoCollectionImpl;
 		menuItemDao.modifyMenuItem(menuItem);
