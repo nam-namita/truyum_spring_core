@@ -1,8 +1,10 @@
 package com.cognizant.truyum.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MenuItem {
+
 	private long id;
 	private String name;
 	private float price;
@@ -11,17 +13,6 @@ public class MenuItem {
 	private String category;
 	private boolean freeDelivery;
 
-	public MenuItem() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/*
-	 * public MenuItem(long id, String name, float price, boolean active, Date
-	 * dateOfLaunch, String category, boolean freeDelivery) { super(); this.id = id;
-	 * this.name = name; this.price = price; this.active = active; this.dateOfLaunch
-	 * = dateOfLaunch; this.category = category; this.freeDelivery = freeDelivery; }
-	 */
 	public long getId() {
 		return id;
 	}
@@ -78,10 +69,35 @@ public class MenuItem {
 		this.freeDelivery = freeDelivery;
 	}
 
+	public MenuItem() {
+		super();
+	}
+
+	public MenuItem(long id, String name, float price, boolean active, Date dateOfLaunch, String category,
+			boolean freeDelivery) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.active = active;
+		this.dateOfLaunch = dateOfLaunch;
+		this.category = category;
+		this.freeDelivery = freeDelivery;
+	}
+
 	@Override
 	public String toString() {
+		SimpleDateFormat d = new SimpleDateFormat("dd/MM/yyyy");
 		return "MenuItem [id=" + id + ", name=" + name + ", price=" + price + ", active=" + active + ", dateOfLaunch="
-				+ dateOfLaunch + ", category=" + category + ", freeDelivery=" + freeDelivery + "]";
+				+ d.format(dateOfLaunch) + ", category=" + category + ", freeDelivery=" + freeDelivery + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
 	}
 
 	@Override
@@ -93,10 +109,8 @@ public class MenuItem {
 		if (getClass() != obj.getClass())
 			return false;
 		MenuItem other = (MenuItem) obj;
-
 		if (id != other.id)
 			return false;
-
 		return true;
 	}
 

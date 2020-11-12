@@ -25,5 +25,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/MyPc/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/2.3.5.RELEASE/c7c3eda5d27ec5ee45994c9bafb6e1b9362fbafd/spring-boot-autoconfigure-2.3.5.RELEASE.jar" sourcepath="C:/Users/MyPc/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/2.3.5.RELEASE/54b4ee3e60690bcf9bb0cbac37d668e8fc89017e/spring-boot-autoconfigure-2.3.5.RELEASE-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

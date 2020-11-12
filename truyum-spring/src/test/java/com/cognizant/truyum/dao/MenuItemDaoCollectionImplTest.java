@@ -1,61 +1,53 @@
 package com.cognizant.truyum.dao;
 
 import java.text.ParseException;
-import java.util.List;
-
+import java.util.*;
 import com.cognizant.truyum.model.MenuItem;
+import com.cognizant.truyum.util.DateUtil;
 
 public class MenuItemDaoCollectionImplTest {
 
 	public static void main(String[] args) throws ParseException {
-		System.out.println("Menu List Admin Printing...");
-		testGetMenuItemListAdmin();
-		System.out.println("Menu List Customer Printing...");
-		testGetMenuListCustomer();
-		System.out.println("Modified Menu and Printing to check...");
-		testModifyMenuItem();
-		System.out.println("Completed.");
+		MenuItemDaoCollectionImplTest M = new MenuItemDaoCollectionImplTest();
+		System.out.println("For admin");
+		M.testGetMenuItemListAdmin();
+		System.out.println("For Customer");
+		M.testGetMenuItemListCustomer();
+		System.out.println("Modified");
+		M.testModifyMenuItem();
+
 	}
 
-	static void testGetMenuItemListAdmin() throws ParseException {
+	public void testGetMenuItemListAdmin() {
 
-		MenuItemDaoCollectionImpl menuItemDaoCollectionImpl = new MenuItemDaoCollectionImpl();
-
-		List<MenuItem> menuItems = menuItemDaoCollectionImpl.getMenuItemListAdmin();
-
-		for (MenuItem menuItem : menuItems) {
-
-			System.out.println(menuItem.toString());
-
+		MenuItemDaoCollectionImpl menuItemDao = new MenuItemDaoCollectionImpl();
+		List<MenuItem> menuItemList = menuItemDao.getMenuItemListAdmin();
+		for (MenuItem m : menuItemList) {
+			System.out.println(m.toString());
 		}
-
 	}
 
-	static void testGetMenuListCustomer() throws ParseException {
-		MenuItemDaoCollectionImpl menuItemDaoCollectionImpl = new MenuItemDaoCollectionImpl();
+	public void testGetMenuItemListCustomer() throws ParseException {
 
-		List<MenuItem> menuItems = menuItemDaoCollectionImpl.getMenuItemListCustomer();
-
-		for (MenuItem menuItem : menuItems) {
-
-			System.out.println(menuItem.toString());
-
+		MenuItemDaoCollectionImpl menuItemDao = new MenuItemDaoCollectionImpl();
+		List<MenuItem> menuItemList = menuItemDao.getMenuItemListCustomer();
+		for (MenuItem m : menuItemList) {
+			System.out.println(m.toString());
 		}
-
 	}
 
-	static void testModifyMenuItem() throws ParseException {
+	public void testModifyMenuItem() throws ParseException {
 
-		MenuItem menuItem = new MenuItem();
-		MenuItemDaoCollectionImpl menuItemDaoCollectionImpl = new MenuItemDaoCollectionImpl();
-		MenuItemDao menuItemDao = menuItemDaoCollectionImpl;
+		MenuItem menuItem = new MenuItem(1, "Sandwich", (float) 99.00, true, DateUtil.convertToDate("15/03/2017"),
+				"Main Course", true);
+		MenuItemDaoCollectionImpl menuItemDaoImpl = new MenuItemDaoCollectionImpl();
+		MenuItemDao menuItemDao = menuItemDaoImpl;
 		menuItemDao.modifyMenuItem(menuItem);
-		System.out.println("Modified MenuItem details are :" + menuItemDao.getMenuItem(000002));
+		System.out.println(menuItemDao.getMenuItem(1));
 
 	}
 
-	void testGetMenuItem() {
+	public void testGetMenuItem() {
 
 	}
-
 }
